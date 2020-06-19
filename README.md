@@ -27,8 +27,8 @@ Freude
 
 Eine weitere Ψ-Idee: Gerade Basis bzw. diskrete Emotionen (im Vergleich zu Valenzen) sind gute Prädiktoren für konkretes Verhalten (Spoiler: Diese Idee habe ich im Projekt nicht umgesetzt. Es wäre aber IMHO sehr sinnvoll sich theoriegeleitet diese Zusammenhänge mal genauer anzuschauen.)
 
-Beispiel Echo Chambers: 
-•	Wut über politische Zustände führt zu mehr (Online)Debatten mit Personen, die sowohl ähnliche als auch unähnliche Meinungen, haben.
+Beispiel Echo Chambers: \
+•	Wut über politische Zustände führt zu mehr (Online)Debatten mit Personen, die sowohl ähnliche als auch unähnliche Meinungen, haben. \
 •	Angst führt dazu, dass man Informationen sucht, die der angstbesetze Meinung widersprechen
 
 ### Vorgehensweise:
