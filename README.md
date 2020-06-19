@@ -28,22 +28,22 @@ Freude
 Eine weitere Ψ-Idee: Gerade Basis bzw. diskrete Emotionen (im Vergleich zu Valenzen) sind gute Prädiktoren für konkretes Verhalten (Spoiler: Diese Idee habe ich im Projekt nicht umgesetzt. Es wäre aber IMHO sehr sinnvoll sich theoriegeleitet diese Zusammenhänge mal genauer anzuschauen.)
 
 Beispiel Echo Chambers: \
--Wut über politische Zustände führt zu mehr (Online)Debatten mit Personen, die sowohl ähnliche als auch unähnliche Meinungen, haben. \
--Angst führt dazu, dass man Informationen sucht, die der angstbesetze Meinung widersprechen
+- Wut über politische Zustände führt zu mehr (Online)Debatten mit Personen, die sowohl ähnliche als auch unähnliche Meinungen, haben. \
+- Angst führt dazu, dass man Informationen sucht, die der angstbesetze Meinung widersprechen
 
 ### Vorgehensweise:
 
 #### Download aller Tweets aus Archiv in eine csv und entsprechende Aufbereitung
-Quelle: http://www.trumptwitterarchive.com/archive \
-CSV als Pandas DataFrame einlesen und Retweets, Links und Sonderzeichen entfernen
+- Quelle: http://www.trumptwitterarchive.com/archive \
+- CSV als Pandas DataFrame einlesen und Retweets, Links und Sonderzeichen entfernen
 
 #### Häufige Wörter zählen (exklusive stopwords) und in einer Wordcloud plotten.
 
 #### Sentiment Analyse
 
-Valenz der Tweets ermitteln mittels VADER und nltk\
-Häufigkeiten (Histogramme) plotten\
-Zeitreihe (mittels rolling mean) plotten
+- Valenz der Tweets ermitteln mittels VADER und nltk\
+- Häufigkeiten (Histogramme) plotten\
+- Zeitreihe (mittels rolling mean) plotten
 
 - Basis Emotionen mittels NRCLex (NRC Word-Emotion Association Lexicon)\
 - Tokenizing und Stemming der Tweets\
@@ -53,6 +53,6 @@ Zeitreihe (mittels rolling mean) plotten
 - Zeitreihe (mittels rolling mean) plotten
 
 #### US-Börsenkurs (S&P 500 - Gewinne/Verluste)
--Quelle: https://de.investing.com/indices/us-spx-500-historical-data
--Gewinne/ Verluste z-standardisieren (Range -1 bis 1) um diese mit den Valenzen/Emotionen der Tweet gemeinsam zu plotten
+- Quelle: https://de.investing.com/indices/us-spx-500-historical-data
+- Gewinne/ Verluste z-standardisieren (Range -1 bis 1) um diese mit den Valenzen/Emotionen der Tweet gemeinsam zu plotten
     ->	to-do
