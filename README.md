@@ -15,14 +15,15 @@ Compound (-1 bis 1) als unidimensionaler Wert aus den 3 Valenzwerten für die we
 
 b) auf Basis Emotionen untersuchen
 Plutchik's wheel of emotions:
-    •	    Furcht
-    •	    Wut
-    •	    Antizipation
-    •	    Vertrauen
-    •	    Überraschung
-    •	    Traurigkeit
-    •	    Ekel
-    •	    Freude
+
+Furcht
+Wut
+Antizipation
+Vertrauen
+Überraschung
+Traurigkeit
+Ekel
+Freude
 
 Eine weitere Ψ-Idee: Gerade Basis bzw. diskrete Emotionen (im Vergleich zu Valenzen) sind gute Prädiktoren für konkretes Verhalten (Spoiler: Diese Idee habe ich im Projekt nicht umgesetzt. Es wäre aber IMHO sehr sinnvoll sich theoriegeleitet diese Zusammenhänge mal genauer anzuschauen.)
 Beispiel Echo Chambers: 
