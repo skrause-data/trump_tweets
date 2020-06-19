@@ -28,27 +28,27 @@ Freude
 Eine weitere Ψ-Idee: Gerade Basis bzw. diskrete Emotionen (im Vergleich zu Valenzen) sind gute Prädiktoren für konkretes Verhalten (Spoiler: Diese Idee habe ich im Projekt nicht umgesetzt. Es wäre aber IMHO sehr sinnvoll sich theoriegeleitet diese Zusammenhänge mal genauer anzuschauen.)
 
 Beispiel Echo Chambers: \
-- Wut über politische Zustände führt zu mehr (Online)Debatten mit Personen, die sowohl ähnliche als auch unähnliche Meinungen, haben. \
+- Wut über politische Zustände führt zu mehr (Online)Debatten mit Personen, die sowohl ähnliche als auch unähnliche Meinungen, haben. 
 - Angst führt dazu, dass man Informationen sucht, die der angstbesetze Meinung widersprechen
 
 ### Vorgehensweise:
 
 #### Download aller Tweets aus Archiv in eine csv und entsprechende Aufbereitung
-- Quelle: http://www.trumptwitterarchive.com/archive \
+- Quelle: http://www.trumptwitterarchive.com/archive 
 - CSV als Pandas DataFrame einlesen und Retweets, Links und Sonderzeichen entfernen
 
 #### Häufige Wörter zählen (exklusive stopwords) und in einer Wordcloud plotten.
 
 #### Sentiment Analyse
 
-- Valenz der Tweets ermitteln mittels VADER und nltk\
-- Häufigkeiten (Histogramme) plotten\
+- Valenz der Tweets ermitteln mittels VADER und nltk
+- Häufigkeiten (Histogramme) plotten
 - Zeitreihe (mittels rolling mean) plotten
 
-- Basis Emotionen mittels NRCLex (NRC Word-Emotion Association Lexicon)\
-- Tokenizing und Stemming der Tweets\
-- Analyse der stemmed Tweets mittels NRCLex \
-  - Funktion affect_frequencies gibt einen stetigen Wert zw. 0 und 1 für alle Emotionen für ein Wort aus.\
+- Basis Emotionen mittels NRCLex (NRC Word-Emotion Association Lexicon)
+- Tokenizing und Stemming der Tweets
+- Analyse der stemmed Tweets mittels NRCLex 
+  - Funktion affect_frequencies gibt einen stetigen Wert zw. 0 und 1 für alle Emotionen für ein Wort aus.
   - Diese werden pro Tweet aufsummiert.
 - Zeitreihe (mittels rolling mean) plotten
 
