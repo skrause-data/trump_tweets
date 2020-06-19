@@ -5,7 +5,7 @@
 
 
 
-Ziel des Projekts:
+### Ziel des Projekts:
 Sentiment Analysen: Trump Tweets auf ihre 
 
 a) Valenz (Wertigkeit: positiv vs. negativ vs. neutral)
@@ -29,9 +29,7 @@ Beispiel Echo Chambers:
 •	Wut über politische Zustände führt zu mehr (Online)Debatten mit Personen, die sowohl ähnliche als auch unähnliche Meinungen, haben.
 •	Angst führt dazu, dass man Informationen sucht, die der angstbesetze Meinung widersprechen
 
-Vorgehensweise:
-0.	Sammeln von Trump Tweets per Twitter API bzw. Modul tweepy
--	Habe ich umgesetzt (siehe Code im Unterordner „alt“), ist aber nicht im finalen Code eingeflossen, da ich alle Tweets von Juni 2015 (Ankündigung Wahlkampf) bis heute zu Analyse nutzen wollte. Der API Abruf bei Twitter ist relativ limitiert, was für die Menge an gewünschten Tweets zu lang gedauert hätte.
+### Vorgehensweise:
 
 1.	Download aller Tweets aus Archiv in eine csv und entsprechende Aufbereitung
 1.1.	Quelle: http://www.trumptwitterarchive.com/archive
