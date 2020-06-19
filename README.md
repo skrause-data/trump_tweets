@@ -41,8 +41,8 @@ CSV als Pandas DataFrame einlesen und Retweets, Links und Sonderzeichen entferne
 
 #### Sentiment Analyse
 
-Valenz der Tweets ermitteln mittels VADER und nltk
-Häufigkeiten (Histogramme) plotten
+Valenz der Tweets ermitteln mittels VADER und nltk\
+Häufigkeiten (Histogramme) plotten\
 Zeitreihe (mittels rolling mean) plotten
 
 Basis Emotionen mittels NRCLex (NRC Word-Emotion Association Lexicon)\
