@@ -26,7 +26,7 @@ Traurigkeit\
 Ekel\
 Freude
 
-Eine weitere Ψ-Idee: Gerade Basis bzw. diskrete Emotionen (im Vergleich zu Valenzen) sind gute Prädiktoren für konkretes Verhalten (Spoiler: Diese Idee habe ich im Projekt nicht umgesetzt. Es wäre aber IMHO sehr sinnvoll sich theoriegeleitet diese Zusammenhänge mal genauer anzuschauen.)\
+Eine weitere Ψ-Idee: Gerade Basis bzw. diskrete Emotionen (im Vergleich zu Valenzen) sind gute Prädiktoren für konkretes Verhalten (Spoiler: Diese Idee habe ich im Projekt nicht umgesetzt. Es wäre aber IMHO sehr sinnvoll sich theoriegeleitet diese Zusammenhänge mal genauer anzuschauen.)
 
 Beispiel Echo Chambers: 
 •	Wut über politische Zustände führt zu mehr (Online)Debatten mit Personen, die sowohl ähnliche als auch unähnliche Meinungen, haben.
@@ -34,27 +34,26 @@ Beispiel Echo Chambers:
 
 ### Vorgehensweise:
 
-1.	Download aller Tweets aus Archiv in eine csv und entsprechende Aufbereitung
-1.1.	Quelle: http://www.trumptwitterarchive.com/archive
-1.2.	CSV als Pandas DataFrame einlesen und Retweets, Links und Sonderzeichen entfernen
+#### Download aller Tweets aus Archiv in eine csv und entsprechende Aufbereitung
+Quelle: http://www.trumptwitterarchive.com/archive
+CSV als Pandas DataFrame einlesen und Retweets, Links und Sonderzeichen entfernen
 
-2.	Häufige Wörter zählen (exklusive stopwords) und in einer Wordcloud plotten.
+#### Häufige Wörter zählen (exklusive stopwords) und in einer Wordcloud plotten.
 
+#### Sentiment Analyse
 
-3.	Sentiment Analyse
+Valenz der Tweets ermitteln mittels VADER und nltk
+Häufigkeiten (Histogramme) plotten
+Zeitreihe (mittels rolling mean) plotten
 
-3.1.	Valenz der Tweets ermitteln mittels VADER und nltk
-3.1.1.	 Häufigkeiten (Histogramme) plotten
-3.1.2.	 Zeitreihe (mittels rolling mean) plotten
-
-3.2.	Basis Emotionen mittels NRCLex (NRC Word-Emotion Association Lexicon)
-3.2.1.	 Tokenizing und Stemming der Tweets
-3.2.2.	 Analyse der stemmed Tweets mittels NRCLex
+Basis Emotionen mittels NRCLex (NRC Word-Emotion Association Lexicon)
+Tokenizing und Stemming der Tweets
+Analyse der stemmed Tweets mittels NRCLex
 -	Funktion affect_frequencies gibt einen stetigen Wert zw. 0 und 1 für alle Emotionen für ein Wort aus.
 -	Diese werden pro Tweet aufsummiert.
-3.2.3.	 Zeitreihe (mittels rolling mean) plotten
+Zeitreihe (mittels rolling mean) plotten
 
-4.	US-Börsenkurs (S&P 500 - Gewinne/Verluste)
+#### US-Börsenkurs (S&P 500 - Gewinne/Verluste)
 -	Quelle: https://de.investing.com/indices/us-spx-500-historical-data
 -	Gewinne/ Verluste z-standardisieren (Range -1 bis 1) um diese mit den Valenzen/Emotionen der Tweet gemeinsam zu plotten
     ->	to-do
