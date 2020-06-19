@@ -46,7 +46,7 @@ Häufigkeiten (Histogramme) plotten\
 Zeitreihe (mittels rolling mean) plotten
 
 Basis Emotionen mittels NRCLex (NRC Word-Emotion Association Lexicon)\
-Tokenizing und Stemming der Tweets\ 
+Tokenizing und Stemming der Tweets\
 Analyse der stemmed Tweets mittels NRCLex
 -	Funktion affect_frequencies gibt einen stetigen Wert zw. 0 und 1 für alle Emotionen für ein Wort aus.
 -	Diese werden pro Tweet aufsummiert.
