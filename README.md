@@ -28,8 +28,8 @@ Freude
 Eine weitere Ψ-Idee: Gerade Basis bzw. diskrete Emotionen (im Vergleich zu Valenzen) sind gute Prädiktoren für konkretes Verhalten (Spoiler: Diese Idee habe ich im Projekt nicht umgesetzt. Es wäre aber IMHO sehr sinnvoll sich theoriegeleitet diese Zusammenhänge mal genauer anzuschauen.)
 
 Beispiel Echo Chambers: \
-•	Wut über politische Zustände führt zu mehr (Online)Debatten mit Personen, die sowohl ähnliche als auch unähnliche Meinungen, haben. \
-•	Angst führt dazu, dass man Informationen sucht, die der angstbesetze Meinung widersprechen
+-Wut über politische Zustände führt zu mehr (Online)Debatten mit Personen, die sowohl ähnliche als auch unähnliche Meinungen, haben. \
+-Angst führt dazu, dass man Informationen sucht, die der angstbesetze Meinung widersprechen
 
 ### Vorgehensweise:
 
@@ -45,14 +45,14 @@ Valenz der Tweets ermitteln mittels VADER und nltk\
 Häufigkeiten (Histogramme) plotten\
 Zeitreihe (mittels rolling mean) plotten
 
-Basis Emotionen mittels NRCLex (NRC Word-Emotion Association Lexicon)\
-Tokenizing und Stemming der Tweets\
-Analyse der stemmed Tweets mittels NRCLex \
+-Basis Emotionen mittels NRCLex (NRC Word-Emotion Association Lexicon)\
+-Tokenizing und Stemming der Tweets\
+-Analyse der stemmed Tweets mittels NRCLex \
 •	Funktion affect_frequencies gibt einen stetigen Wert zw. 0 und 1 für alle Emotionen für ein Wort aus.\
 •	Diese werden pro Tweet aufsummiert.
 Zeitreihe (mittels rolling mean) plotten
 
 #### US-Börsenkurs (S&P 500 - Gewinne/Verluste)
--	Quelle: https://de.investing.com/indices/us-spx-500-historical-data
--	Gewinne/ Verluste z-standardisieren (Range -1 bis 1) um diese mit den Valenzen/Emotionen der Tweet gemeinsam zu plotten
+-Quelle: https://de.investing.com/indices/us-spx-500-historical-data
+-Gewinne/ Verluste z-standardisieren (Range -1 bis 1) um diese mit den Valenzen/Emotionen der Tweet gemeinsam zu plotten
     ->	to-do
