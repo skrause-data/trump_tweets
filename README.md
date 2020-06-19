@@ -55,4 +55,4 @@ Beispiel Echo Chambers: \
 #### US-Börsenkurs (S&P 500 - Gewinne/Verluste)
 - Quelle: https://de.investing.com/indices/us-spx-500-historical-data
 - Gewinne/ Verluste z-standardisieren (Range -1 bis 1) um diese mit den Valenzen/Emotionen der Tweet gemeinsam zu plotten
-    ->	to-do
+    ->	to-do  
