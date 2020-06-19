@@ -9,8 +9,9 @@
 Sentiment Analysen: Trump Tweets auf ihre 
 
 a) Valenz (Wertigkeit: positiv vs. negativ vs. neutral)
-ähnliche wie in diesem Blog Beitrag wollte ich den Zusammenhang (Korrelation) zwischen der Valenz von Trump Tweets und Börsen-Kursen beschreiben
-Compound (-1 bis 1) als unidimensionaler Wert aus den 3 Valenzwerten für die weiteren Analysen genutzt:
+Korrelation bzw. Regression zwischen der Valenz von Trump Tweets und Börsen-Kursen beschreiben\
+
+Compound (-1 bis 1) als unidimensionaler Wert aus den 3 Valenzwerten für die weiteren Analysen genutzt:\
 „The compound score is computed by summing the valence scores of each word in the lexicon, adjusted according to the rules, and then normalized to be between -1 (most extreme negative) and +1 (most extreme positive). This is the most useful metric if you want a single unidimensional measure of sentiment for a given sentence. Calling it a 'normalized, weighted composite score' is accurate.“
 
 b) auf Basis Emotionen untersuchen
@@ -23,9 +24,10 @@ Vertrauen\
 Überraschung\
 Traurigkeit\
 Ekel\
-Freude\
+Freude
 
-Eine weitere Ψ-Idee: Gerade Basis bzw. diskrete Emotionen (im Vergleich zu Valenzen) sind gute Prädiktoren für konkretes Verhalten (Spoiler: Diese Idee habe ich im Projekt nicht umgesetzt. Es wäre aber IMHO sehr sinnvoll sich theoriegeleitet diese Zusammenhänge mal genauer anzuschauen.)
+Eine weitere Ψ-Idee: Gerade Basis bzw. diskrete Emotionen (im Vergleich zu Valenzen) sind gute Prädiktoren für konkretes Verhalten (Spoiler: Diese Idee habe ich im Projekt nicht umgesetzt. Es wäre aber IMHO sehr sinnvoll sich theoriegeleitet diese Zusammenhänge mal genauer anzuschauen.)\
+
 Beispiel Echo Chambers: 
 •	Wut über politische Zustände führt zu mehr (Online)Debatten mit Personen, die sowohl ähnliche als auch unähnliche Meinungen, haben.
 •	Angst führt dazu, dass man Informationen sucht, die der angstbesetze Meinung widersprechen
