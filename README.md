@@ -45,12 +45,12 @@ Valenz der Tweets ermitteln mittels VADER und nltk\
 Häufigkeiten (Histogramme) plotten\
 Zeitreihe (mittels rolling mean) plotten
 
-* Basis Emotionen mittels NRCLex (NRC Word-Emotion Association Lexicon)\
-* Tokenizing und Stemming der Tweets\
-* Analyse der stemmed Tweets mittels NRCLex \
- * Funktion affect_frequencies gibt einen stetigen Wert zw. 0 und 1 für alle Emotionen für ein Wort aus.\
-        - Diese werden pro Tweet aufsummiert.
-Zeitreihe (mittels rolling mean) plotten
+- Basis Emotionen mittels NRCLex (NRC Word-Emotion Association Lexicon)\
+- Tokenizing und Stemming der Tweets\
+- Analyse der stemmed Tweets mittels NRCLex \
+  - Funktion affect_frequencies gibt einen stetigen Wert zw. 0 und 1 für alle Emotionen für ein Wort aus.\
+  - Diese werden pro Tweet aufsummiert.
+- Zeitreihe (mittels rolling mean) plotten
 
 #### US-Börsenkurs (S&P 500 - Gewinne/Verluste)
 -Quelle: https://de.investing.com/indices/us-spx-500-historical-data
