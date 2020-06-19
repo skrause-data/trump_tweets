@@ -35,7 +35,7 @@ Beispiel Echo Chambers:
 ### Vorgehensweise:
 
 #### Download aller Tweets aus Archiv in eine csv und entsprechende Aufbereitung
-Quelle: http://www.trumptwitterarchive.com/archive
+Quelle: http://www.trumptwitterarchive.com/archive \
 CSV als Pandas DataFrame einlesen und Retweets, Links und Sonderzeichen entfernen
 
 #### Häufige Wörter zählen (exklusive stopwords) und in einer Wordcloud plotten.
