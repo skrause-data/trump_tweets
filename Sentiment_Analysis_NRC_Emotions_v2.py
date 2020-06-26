@@ -153,9 +153,6 @@ def sentiment_analyzer_scores(sentence):
     print("{:-<20} {}".format(sentence, str(score)))
 
 sentiment_analyzer_scores("Trump is very dumb.")
-sentiment_analyzer_scores("Trump is dumb as fuck!!!")
-sentiment_analyzer_scores("Trump is dumb as fuck.")
-sentiment_analyzer_scores("Trump is dumb as FUCK.")
 sentiment_analyzer_scores("😀")
 sentiment_analyzer_scores("💩")
 '''
@@ -345,7 +342,7 @@ text_object.affect_frequencies
 text_object = NRCLex('Donald is dumb')
 text_object.affect_frequencies
 
-text_object = NRCLex('Their genitals have been atrociously mutilated.')
+text_object = NRCLex('Their hands have been atrociously mutilated.')
 text_object.words
 text_object.affect_frequencies
 
@@ -356,7 +353,7 @@ text_object.affect_frequencies
 text_object = NRCLex('Menschen sterben schlimm.')
 text_object.affect_frequencies
 
-text_object = NRCLex('Mutter Beimer wählt die unsinnige AfD.')
+text_object = NRCLex('Mutter Beimer ist sehr dumm.')
 text_object.words
 # Deutsch scheint noch nicht implementiert zu sein.
 '''
