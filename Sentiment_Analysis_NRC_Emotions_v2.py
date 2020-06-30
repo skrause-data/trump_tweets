@@ -22,7 +22,6 @@
 #Quelle: http://www.trumptwitterarchive.com/archive
 
 import pandas as pd
-import html
 df_raw = pd.read_csv("trump_2015.csv",sep='\t', encoding = "utf-8")
 
 
@@ -44,8 +43,6 @@ import pandas as pd
 
 from nltk.corpus import stopwords
 from nltk import word_tokenize
-
-
 stoplist = stopwords.words('english')
 
 def remove_punctuations(text):
@@ -58,6 +55,7 @@ texts = texts.str.replace('[{}]'.format(string.punctuation), '')
 
 pat = r'\b(?:{})\b'.format('|'.join(stoplist))
 texts = texts.replace(pat, '', regex=True)
+
 
 
 word_counts = Counter(word_tokenize('\n'.join(texts)))
@@ -119,6 +117,9 @@ wc.to_file(r'wordcloud.png')
 
 
 
+
+
+
 '''
 3. Sentiment Analysen
 '''
@@ -156,10 +157,6 @@ sentiment_analyzer_scores("Trump is very dumb.")
 sentiment_analyzer_scores("😀")
 sentiment_analyzer_scores("💩")
 '''
-
-#txt = open('trumptweets.txt', 'r', encoding="utf8") 
-#txt = open('trumptweets_seit_2015_bereinigt.txt', 'r', encoding="utf8") 
-#lines = txt.readlines() 
 
 
 #Füge die 4 Variablen aus VADER dem DataFrame hinzu
@@ -307,17 +304,34 @@ print(df.stem)
 
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
+
+tokenizer = nltk.RegexpTokenizer(r"\w+")
+
+
 ps = PorterStemmer()
 stop = stopwords.words('english')
 
-
-df['token'] = df['text'].apply(lambda x :filter(None,x.split(" ")))
+df['token'] = df['text'].apply(lambda x :filter(None,tokenizer.tokenize(x)))
 df['token'] = df['token'].apply(lambda x: [item for item in x if item not in stop])
 df['stem']=df['token'].apply(lambda x : [ps.stem(y) for y in x])
 df['stem'].apply(lambda word: word not in stop and word != '')
 df['stemmed_sentence']=df['stem'].apply(lambda x : " ".join(x))
 
+#################
+###############
 
+#Filter Tweets nach Stockmarket Inhalten
+
+'''
+Filter words: "trade", "rates", "inflation", "economy", "growth", "manipulation", "currency", "dollar", "china", "Fed", "Powell", "Xi", "tariffs", "impeach".
+'''
+
+stockfilter = ['trade', 'rates', 'inflation', 'economy', 'growth', 'manipulation', 'currency', 'dollar', 'china', 'Fed', 'Powell', 'Xi', 'tariffs', 'impeach']
+
+df["filter"] = df['stemmed_sentence'].apply(lambda x: 1 if any(i in x for i in stockfilter) else 0)
+
+
+df_stocktweets =df[df['filter'] == 1] 
 
 
 #2.2: Erkenne Basis Emotionen
@@ -331,47 +345,16 @@ df['stemmed_sentence']=df['stem'].apply(lambda x : " ".join(x))
 from nrclex import NRCLex
 
 
-'''
-#Test
-text_object = NRCLex('spider')
-text_object.raw_emotion_scores
-
-text_object = NRCLex('The zombie was eating brains.')
-text_object.affect_frequencies
-
-text_object = NRCLex('Donald is dumb')
-text_object.affect_frequencies
-
-text_object = NRCLex('Their hands have been atrociously mutilated.')
-text_object.words
-text_object.affect_frequencies
-
-text_object = NRCLex('atrociously mutilate')
-text_object.affect_frequencies
-
-
-text_object = NRCLex('Menschen sterben schlimm.')
-text_object.affect_frequencies
-
-text_object = NRCLex('Mutter Beimer ist sehr dumm.')
-text_object.words
-# Deutsch scheint noch nicht implementiert zu sein.
-'''
-
-
-from nrclex import NRCLex
-
 def emo(str):
     text_object = NRCLex(str)
     return text_object.affect_frequencies
-
 '''
 affect_frequencies gibt einen stetigen Wert zw. 0 und 1 für alle Emotionen für ein Wort aus.
 '''
 
 
-emotions = df['stemmed_sentence'].apply(lambda x: emo(x))
-df = pd.concat([df,emotions.apply(pd.Series)],1)
+emotions = df_stocktweets['stemmed_sentence'].apply(lambda x: emo(x))
+df_stocktweets = pd.concat([df_stocktweets,emotions.apply(pd.Series)],1)
 
 
 # Gesamt-Deskriptiva
@@ -388,25 +371,25 @@ print("\nFreude\n",df.joy.describe())
 #rolling means
 
 
-df.fear.rolling("96h").mean().plot(figsize=(100,80), linewidth=5, fontsize=60)
+df_stocktweets.fear.rolling("96h").mean().plot(figsize=(100,80), linewidth=5, fontsize=60)
 plt.ylim(-1, 1)
 plt.xlabel('Jahr', fontsize=60)
 plt.ylabel('Angst', fontsize=60)
 
 
-df.anger.rolling("96h").mean().plot(figsize=(100,80), linewidth=5, fontsize=60)
+df_stocktweets.anger.rolling("96h").mean().plot(figsize=(100,80), linewidth=5, fontsize=60)
 plt.ylim(-1, 1)
 plt.xlabel('Jahr', fontsize=60)
 plt.ylabel('Wut', fontsize=60)
 
 
-df.disgust.rolling("96h").mean().plot(figsize=(100,80), linewidth=5, fontsize=60)
+df_stocktweets.disgust.rolling("96h").mean().plot(figsize=(100,80), linewidth=5, fontsize=60)
 plt.ylim(-1, 1)
 plt.xlabel('Jahr', fontsize=60)
 plt.ylabel('Ekel', fontsize=60)
 
 
-df.joy.rolling("96h").mean().plot(figsize=(100,80), linewidth=5, fontsize=60)
+df_stocktweets.joy.rolling("96h").mean().plot(figsize=(100,80), linewidth=5, fontsize=60)
 plt.ylim(-1, 1)
 plt.xlabel('Jahr', fontsize=60)
 plt.ylabel('Freude', fontsize=60)
@@ -467,12 +450,3 @@ To tos:
        
        
 print("FERTIG!!!!")
-
-
-
-
-
-
-
-
-
