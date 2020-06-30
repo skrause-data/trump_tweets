@@ -15,7 +15,6 @@
 1. Bereite Tweets aus csv auf (meine Versuche mit der API waren wegen den Limits mir zu wenig)
 '''
 
-
 #################
 #csv mit Datum für Tweets vom 15. Juni 2015 (Ankündigung Wahl) bis 28. Mai 2020
 #################
@@ -25,7 +24,6 @@ import pandas as pd
 df_raw = pd.read_csv("trump_2015.csv",sep='\t', encoding = "utf-8")
 
 
-
 # entferne Retweets
 
 df = df_raw[~df_raw["text"].str.contains("RT @", na=True)]
@@ -33,7 +31,6 @@ df = df_raw[~df_raw["text"].str.contains("RT @", na=True)]
 
 #Entferne Links und ersetz html Zeichen
 df['text'] = df['text'].replace(r'http\S+', '', regex=True).replace(r'www\S+', '', regex=True).replace(r'&amp;', '&', regex=True).replace(r'&gt;', '>', regex=True).replace(r'&lt;', '<', regex=True).replace(r'@realDonaldTrump', '', regex=True).replace(r'U.S.', 'UnitedStates', regex=True).replace(r'u.s.', 'UnitedStates', regex=True)
-
 
 
 from collections import Counter
@@ -56,17 +53,13 @@ texts = texts.str.replace('[{}]'.format(string.punctuation), '')
 pat = r'\b(?:{})\b'.format('|'.join(stoplist))
 texts = texts.replace(pat, '', regex=True)
 
-
-
 word_counts = Counter(word_tokenize('\n'.join(texts)))
 print(texts)
 word_counts.most_common(50)
 
 
-
 # Gesamt-Deskriptiva
 print(df.describe())
-
 
 
 '''
@@ -82,7 +75,6 @@ freqdist = nltk.FreqDist(df.text)
 
 # Plotte 
 freqdist.plot(25)
-
 
 
 #Wordcloud
@@ -115,15 +107,9 @@ plt.show()
 wc.to_file(r'wordcloud.png')
 
 
-
-
-
-
-
 '''
 3. Sentiment Analysen
 '''
-
 
 #3.1. Valenz der Tweets ermitteln
 
@@ -137,7 +123,6 @@ wc.to_file(r'wordcloud.png')
 '''
 The compound score is computed by summing the valence scores of each word in the lexicon, adjusted according to the rules, and then normalized to be between -1 (most extreme negative) and +1 (most extreme positive). This is the most useful metric if you want a single unidimensional measure of sentiment for a given sentence. Calling it a 'normalized, weighted composite score' is accurate.
 '''
-
 
 '''
 #Teste VADER
@@ -157,7 +142,6 @@ sentiment_analyzer_scores("Trump is very dumb.")
 sentiment_analyzer_scores("😀")
 sentiment_analyzer_scores("💩")
 '''
-
 
 #Füge die 4 Variablen aus VADER dem DataFrame hinzu
 
@@ -181,21 +165,16 @@ print(df.neg.describe())
 print(df.neu.describe())
 
 
-
-
 #Plotte VADER Compound Werte
-
 import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-
 sns.set(color_codes=True)
 
 
 #Histogramm für compound
-
 sns.distplot(df['compound'], kde=False)
 plt.title('Histogramm', fontsize=18)
 plt.xlabel('Compound', fontsize=16)
@@ -203,7 +182,6 @@ plt.ylabel('Häufigkeit', fontsize=16)
 
 
 #Histogramm für positiv
-
 sns.distplot(df['pos'], kde=False)
 plt.title('Histogramm', fontsize=18)
 plt.xlabel('Positive Valenz', fontsize=16)
@@ -211,7 +189,6 @@ plt.ylabel('Häufigkeit', fontsize=16)
 
 
 #Histogramm für negativ
-
 sns.distplot(df['pos'], kde=False)
 plt.title('Histogramm', fontsize=18)
 plt.xlabel('Negative Valenz', fontsize=16)
@@ -221,17 +198,12 @@ plt.ylabel('Häufigkeit', fontsize=16)
 
 
 #Plotte Compound über Zeit
-
-#df.sort_values(by='created_at', inplace=True)
-#df.index = pd.to_datetime(df['created_at'])
-
 import numpy as np, pandas as pd; plt.close("all")
 import seaborn as sns; sns.set()
 import matplotlib.pyplot as plt
 
 
 #rolling mean
-
 df_plot = df.dropna(subset=['created_at'],inplace=True)
 df_plot = df['created_at'] = pd.to_datetime(df['created_at'], infer_datetime_format=True)
 df_plot= df.set_index('created_at', inplace=True)
@@ -239,18 +211,14 @@ df_plot= df.index.duplicated().sum()
 df_plot= df = df[~df.index.duplicated()]
 df_plot.sort_index(inplace=True)
 
-
 df_plot['compound']
 df_plot['mean'] = df['compound'].expanding().mean()
 #df_plot['compound'].rolling("12h").mean()
-
-
 
 df_plot.compound.rolling("96h").mean().plot(figsize=(100,80), linewidth=5, fontsize=60)
 plt.ylim(-1, 1)
 plt.xlabel('Jahr', fontsize=60)
 plt.ylabel('Compound', fontsize=60)
-
 
 
 # 2. Basis Emotionen bestimmen
@@ -288,7 +256,7 @@ Plutchik's wheel of emotions:
 # python -m spacy download en
 
 '''
-# Spacy scheint sehr mächtig zu sein, funktioniert aber nicht hier. :/ Daher nutze ich hier dann doch PorterStemmer
+# Spacy scheint sehr mächtig zu sein, funktioniert aber hier nicht. :/ Daher nutze ich hier dann doch PorterStemmer
 
 
 import spacy
@@ -317,8 +285,6 @@ df['stem']=df['token'].apply(lambda x : [ps.stem(y) for y in x])
 df['stem'].apply(lambda word: word not in stop and word != '')
 df['stemmed_sentence']=df['stem'].apply(lambda x : " ".join(x))
 
-#################
-###############
 
 #Filter Tweets nach Stockmarket Inhalten
 
@@ -334,8 +300,8 @@ df["filter"] = df['stemmed_sentence'].apply(lambda x: 1 if any(i in x for i in s
 df_stocktweets =df[df['filter'] == 1] 
 
 
-#2.2: Erkenne Basis Emotionen
 
+#2.2: Erkenne Basis Emotionen
 
 # siehe  https://pypi.org/project/NRCLex/ und v.a.
 #        http://saifmohammad.com/ 
@@ -352,10 +318,8 @@ def emo(str):
 affect_frequencies gibt einen stetigen Wert zw. 0 und 1 für alle Emotionen für ein Wort aus.
 '''
 
-
 emotions = df_stocktweets['stemmed_sentence'].apply(lambda x: emo(x))
 df_stocktweets = pd.concat([df_stocktweets,emotions.apply(pd.Series)],1)
-
 
 # Gesamt-Deskriptiva
 print("\nFurcht\n", df.fear.describe())
@@ -409,9 +373,6 @@ plt.ylabel('Freude', fontsize=60)
 import pandas as pd
 stock_raw = pd.read_csv("stock.csv", sep= ';', encoding='utf-8')
 
-#error:  'unicodeescape' codec can't decode bytes in position 13410-13411: truncated \uXXXX escape
-
-
 
 
 #Gewinne/Verluste z-standardizieren (-1 bis +1) um sie besser plotten zu können
@@ -423,10 +384,11 @@ stock_raw.plusminus.std(ddof=0)
 stock_raw = pd.concat([stock_raw, temp], axis=1, sort=False)
 
 #To-do: z-Werte müssen noch in den DataFrame und dann mit Trump Compound Werten ploten
+# -> siehe dazu: https://stackoverflow.com/questions/35368581/pandas-weighted-mean
+
 
 
 #Korrelation aus Trump Compound Werten und Gewinn/Verluste
-
 
 import numpy as np
 import pandas as pd
@@ -438,15 +400,7 @@ To tos:
     
 - DateFrame Börsen-Kurs und Trump DataFrame zusammenführen um Korrelation berechnen zu können.
 - Tweet-Compund Wert für einen Tag zusammenfassen um diese mit den Börsen Kursen zu matchen
-- ggf. Tweets vorher nach Börsen-relevanten Wörtern filtern
-
-
 '''
 
-       
-       
-       
-       
-       
        
 print("FERTIG!!!!")
