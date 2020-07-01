@@ -23,7 +23,8 @@ b) auf Basis Emotionen untersuchen (Plutchik's wheel of emotions):
 - Ekel
 - Freude
 
-### Zentrale Frage: Wie hängen die Valenz bzw. Basisemotionen mit Börsenwerten zusammen?
+### Zentrale Frage
+Wie hängen die Valenz bzw. Basisemotionen mit Börsenwerten zusammen?
 
 
 ### Vorgehensweise:
