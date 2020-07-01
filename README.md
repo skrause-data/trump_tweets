@@ -1,8 +1,6 @@
-# Projekt-Aufgabe Big Data
-## Sentiment Analyse
+# Sentiment Analyse von Trump Tweets und der Zusammenhang mit Börsenwerten
 
 ![alt text](https://github.com/skrause-data/trump_tweets/blob/master/wordcloud.png)
-
 
 
 ### Ziel des Projekts:
@@ -25,11 +23,8 @@ b) auf Basis Emotionen untersuchen (Plutchik's wheel of emotions):
 - Ekel
 - Freude
 
-Eine weitere Ψ-Idee: Gerade Basis bzw. diskrete Emotionen (im Vergleich zu Valenzen) sind gute Prädiktoren für konkretes Verhalten (Spoiler: Diese Idee habe ich im Projekt nicht umgesetzt. Es wäre aber IMHO sehr sinnvoll sich theoriegeleitet diese Zusammenhänge mal genauer anzuschauen.)
+### Zentrale Frage: Wie hängen die Valenz bzw. Basisemotionen mit Börsenwerten zusammen?
 
-Beispiel Echo Chambers: 
-- Wut über politische Zustände führt zu mehr (Online)Debatten mit Personen, die sowohl ähnliche als auch unähnliche Meinungen, haben. 
-- Angst führt dazu, dass man Informationen sucht, die der angstbesetze Meinung widersprechen
 
 ### Vorgehensweise:
 
